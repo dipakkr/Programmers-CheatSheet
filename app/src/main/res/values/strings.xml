@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Coders CheatSheet</string>
+    <string name="app_name">Programming CheatSheet</string>
     <string name="tab_title_one">Array</string>
     <string name="tab_title_two">Stack</string>
     <string name="tab_title_three">Queue</string>
