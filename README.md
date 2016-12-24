@@ -9,5 +9,5 @@
 
 ### ScreenShot of sample android app 
 
-![alt-tag](docs/s1.png)
+![alt-tag](docs/ss1.png)
 
