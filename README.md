@@ -1,6 +1,6 @@
 # Programmers CheatSheet
 
--- Android application for quick revise of coding concept l
+Android application for quick revise of coding concept.
 
 ### Commits : 
 
