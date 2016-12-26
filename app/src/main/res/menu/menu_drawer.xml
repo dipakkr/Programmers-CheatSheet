@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"
+           android:id="@+id/grp1">
+        <item
+            android:title="@string/time_complexity"
+            android:id="@+id/nav_time_complexity"
+            android:icon="@drawable/ic_label_black_24dp"/>
+        <item
+            android:title="@string/ds"
+            android:id="@+id/nav_ds"
+            android:icon="@drawable/ic_label_black_24dp"/>
+
+        <item
+            android:title="@string/android"
+            android:id="@+id/nav_android"
+            android:icon="@drawable/ic_label_black_24dp"/>
+        <item
+            android:title="@string/algorithm"
+            android:id="@+id/nav_algo"
+            android:icon="@drawable/ic_label_black_24dp"/>
+        <item
+            android:title="@string/Git"
+            android:id="@+id/nav_git"
+            android:icon="@drawable/ic_label_black_24dp"/>
+
+    </group>
+
+    <group android:checkableBehavior="single"
+            android:id="@+id/grp2">
+
+        <item android:title="@string/share"
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_share_black_24dp"/>
+
+        <item android:title="@string/setting"
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_settings_black_24dp"/>
+
+        <item android:title="@string/about"
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info_black_24dp"/>
+    </group>
+
+</menu>

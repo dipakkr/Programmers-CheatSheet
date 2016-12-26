@@ -20,4 +20,14 @@
     <string name="insert">Insert</string>
     <string name="time_complexity">Time Complexity</string>
     <string name="setting">Settings</string>
+
+    <string name="ds">Data Strucure</string>
+    <string name="Git">Git</string>
+    <string name="android">Android</string>
+    <string name="algorithm">Algorithm</string>
+    <string name="share">Share </string>
+    <string name="about">About Us</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
 </resources>
