@@ -23,27 +23,22 @@ public class SimpleFragmentAdapter extends FragmentPagerAdapter {
         } else if (position == 2) {
             return new QueueFragment();
         } else if (position == 3) {
-            return new StackFragment();
+            return new SingleLinkedListFragment();
         } else if (position == 4) {
-            return new StackFragment();
+            return new DoubleLLFragment();
         } else if (position == 5) {
-            return new StackFragment();
+            return new BtreeFragment();
         } else if (position == 6) {
-            return new StackFragment();
+            return new BSTFragment();
         } else if (position == 7) {
-            return new StackFragment();
-        } else if (position == 8) {
-            return new StackFragment();
-        } else if (position == 9) {
-            return new StackFragment();
+            return new HashTableFragment();
         }
-        else {
-            return new QueueFragment();
-        }
+        else
+            return new AVLTreeFragment();
     }
     @Override
     public int getCount() {
-        return 11;
+        return 8;
     }
     @Override
     public CharSequence getPageTitle(int position) {
@@ -61,15 +56,8 @@ public class SimpleFragmentAdapter extends FragmentPagerAdapter {
             return mContext.getString(R.string.tab_title_six);
         }else if(position == 6){
             return mContext.getString(R.string.tab_title_seven);
-        }else if(position ==7){
-            return mContext.getString(R.string.tab_title_eight);
-        }else if(position == 8){
-            return mContext.getString(R.string.tab_title_nine);
-        }
-        else if(position == 9){
-            return mContext.getString(R.string.tab_title_ten);
         }
         else
-            return mContext.getString(R.string.tab_title_eleven);
+            return mContext.getString(R.string.tab_title_seven);
     }
 }

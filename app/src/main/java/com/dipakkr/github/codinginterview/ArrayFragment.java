@@ -27,8 +27,6 @@ public class ArrayFragment  extends Fragment{
 
         ListView arraylist = (ListView)rootview.findViewById(R.id.list_array);
         arraylist.setAdapter(adapter);
-
-
         return rootview;
     }
 }

@@ -2,30 +2,29 @@ package com.dipakkr.github.codinginterview;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mdrawerLayout;
     private NavigationView mNavigation;
     private ActionBarDrawerToggle mdrawerToggle;
     private Toolbar toolbar;
+    private final String FRAGMENT_TAG_HOME = "Home";
+    private boolean backpressedonce = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +87,38 @@ public class MainActivity extends AppCompatActivity {
         // Close the navigation drawer
         mdrawerLayout.closeDrawers();
     }
+
+    @Override
+    public void onBackPressed() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment homefragment = fragmentManager.findFragmentByTag(FRAGMENT_TAG_HOME);
+        mdrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (mdrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mdrawerLayout.closeDrawer(GravityCompat.START);
+        } else if (homefragment != null && homefragment.isVisible()) {
+            if (backpressedonce) {
+                finish();
+            }
+            if (!backpressedonce) {
+                Toast.makeText(this, "Tap once more to exit", Toast.LENGTH_SHORT).show();
+            }
+            backpressedonce = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    backpressedonce = false;
+                }
+            }, 2000);
+        }else {
+            fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .replace(R.id.list_array, new ArrayFragment(), FRAGMENT_TAG_HOME).commit();
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(R.string.app_name);
+        }
+        mNavigation.setCheckedItem(R.id.nav_time_complexity);
+    }
+  }
+
     private void shareapp(){
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
@@ -95,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 "Hey check out my app at: https://play.google.com/store/apps/details?id=com.google.android.apps.plus");
         sendIntent.setType("text/plain");
         startActivity(sendIntent);
-
     }
 
 
